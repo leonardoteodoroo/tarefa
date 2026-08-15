@@ -141,6 +141,10 @@
       box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     /* GRID DE CARDS */
     .sections-wrapper {
       display: flex;
@@ -154,8 +158,14 @@
       border: 1px solid var(--border-color);
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      transition: border-color 0.3s ease;
-      scroll-margin-top: 90px;
+      transition: all 0.35s ease;
+      scroll-margin-top: 110px;
+    }
+
+    .nicho-section.highlight {
+      border-color: rgba(99, 102, 241, 0.85) !important;
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.35), 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+      transform: scale(1.002);
     }
 
     .nicho-section:hover {
@@ -1891,6 +1901,57 @@ O nascimento de um bebê é um momento mágico... Optar por um item feito à mã
         resetZoom();
       }
     });
+
+    // NAVEGAÇÃO INTERATIVA DE ABAS & SCROLLSPY
+    const navButtons = document.querySelectorAll('.nav-tab-btn');
+    const sections = document.querySelectorAll('.nicho-section');
+
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = btn.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          navButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const headerOffset = 95;
+          const elementPosition = targetSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          targetSection.classList.add('highlight');
+          setTimeout(() => targetSection.classList.remove('highlight'), 1200);
+        }
+      });
+    });
+
+    // SCROLLSPY AUTOMÁTICO AO ROLAR A PÁGINA
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      const scrollY = window.pageYOffset;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        const sectionHeight = section.offsetHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+
+      if (currentSectionId) {
+        navButtons.forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.getAttribute('href') === `#${currentSectionId}`) {
+            btn.classList.add('active');
+          }
+        });
+      }
+    }, { passive: true });
   </script>
 
 </body>
