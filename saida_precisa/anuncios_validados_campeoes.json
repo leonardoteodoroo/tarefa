@@ -1,0 +1,32 @@
+[
+  {
+    "nichoId": "salao_de_beleza",
+    "nichoNome": "Salão de Beleza & Estética Capilar",
+    "anunciante": "Salão Santa Beleza Personalité",
+    "libraryId": "10099027006791965",
+    "dataInicio": "Mar 30, 2025",
+    "copy": "Quarta-feira começando com esse cabelo lindo passando pelo seu feed. Amamos mechas que se mesclam com o cabelo, sem marcações, dando naturalidade e muita sofisticação!",
+    "adUrl": "https://www.facebook.com/ads/library/?id=10099027006791965",
+    "screenshotPath": "/home/leossd/.agents/Memoria/Base de Projetos/Pesquisa e Anúncios/Mineração de Anúncios/saida_precisa/print_salao_de_beleza.png"
+  },
+  {
+    "nichoId": "acaiteria",
+    "nichoNome": "Açaiteria & Delivery de Açaí",
+    "anunciante": "Açaí da Thay",
+    "libraryId": "1278655217793153",
+    "dataInicio": "Jun 14, 2026",
+    "copy": "qualidade, capricho e aquele combo perfeito pra matar a vontade de doce sem peso na consciência. 🍓🍫🍌",
+    "adUrl": "https://www.facebook.com/ads/library/?id=1278655217793153",
+    "screenshotPath": "/home/leossd/.agents/Memoria/Base de Projetos/Pesquisa e Anúncios/Mineração de Anúncios/saida_precisa/print_acaiteria.png"
+  },
+  {
+    "nichoId": "seguro_de_vida",
+    "nichoNome": "Seguros de Vida & Proteção Familiar",
+    "anunciante": "Multiplanos Ageplan",
+    "libraryId": "1358434665713972",
+    "dataInicio": "Jul 29, 2026",
+    "copy": "🩺 Muito mais que um plano. Uma proteção completa para toda a sua família.\n\nVocê já percebeu que os planos de saúde tradicionais estão cada vez mais caros e cheios de burocracia? Carências, reajustes anuais e mensalidades que pesam no orçamento fazem muitas famílias desistirem de cuidar da saúde.",
+    "adUrl": "https://www.facebook.com/ads/library/?id=1358434665713972",
+    "screenshotPath": "/home/leossd/.agents/Memoria/Base de Projetos/Pesquisa e Anúncios/Mineração de Anúncios/saida_precisa/print_seguro_de_vida.png"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "salao_de_beleza",
+    "nome": "Salão de Beleza & Estética Capilar",
+    "anunciante": "Salão ÂME",
+    "libraryId": "1354956590073177",
+    "dataInicio": "Jul 20, 2026",
+    "copy": "✨ Há 18 anos cuidando da sua beleza e bem-estar!",
+    "adUrl": "https://www.facebook.com/ads/library/?id=1354956590073177",
+    "printPath": "/home/leossd/.agents/Memoria/Base de Projetos/Pesquisa e Anúncios/Mineração de Anúncios/saida_precisa/print_salao_de_beleza.png"
+  },
+  {
+    "id": "acaiteria",
+    "nome": "Açaiteria & Delivery de Açaí",
+    "anunciante": "Mocorongo Açaí",
+    "libraryId": "4016066412018330",
+    "dataInicio": "Mar 30, 2026",
+    "copy": "WHATSAPP\nPeça já\nMOCORONGO AÇAÍ\nSend WhatsApp message",
+    "adUrl": "https://www.facebook.com/ads/library/?id=4016066412018330",
+    "printPath": "/home/leossd/.agents/Memoria/Base de Projetos/Pesquisa e Anúncios/Mineração de Anúncios/saida_precisa/print_acaiteria.png"
+  },
+  {
+    "id": "seguro_de_vida",
+    "nome": "Seguros de Vida & Planejamento Familiar",
+    "anunciante": "Prudential do Brasil",
+    "libraryId": "4278002805755856",
+    "dataInicio": "May 29, 2026",
+    "copy": "Quando a vida surpreende, ter proteção financeira muda tudo. Inclua o seguro de vida em seu planejamento e proteja sua família.",
+    "adUrl": "https://www.facebook.com/ads/library/?id=4278002805755856",
+    "printPath": "/home/leossd/.agents/Memoria/Base de Projetos/Pesquisa e Anúncios/Mineração de Anúncios/saida_precisa/print_seguro_de_vida.png"
+  },
+  {
+    "id": "cosmeticos_kits_beleza",
+    "nome": "Cosméticos & Kits de Presentes (Revendedora / Loja de Beleza Local)",
+    "anunciante": "Arvensis Cosméticos Naturais",
+    "libraryId": "1307725288107581",
+    "dataInicio": "Jul 27, 2026",
+    "copy": "Fios finos pedem leveza, não peso. O Kit Super Leve hidrata, define o cacho e ainda vem com um óleo de presente.\n\n🚚 Entrega para todo o Brasil\n💳 Em até 6x sem juros\n📦 Produtos com pronta entrega",
+    "adUrl": "https://www.facebook.com/ads/library/?id=1307725288107581",
+    "printPath": "/home/leossd/.agents/Memoria/Base de Projetos/Pesquisa e Anúncios/Mineração de Anúncios/saida_precisa/print_cosmeticos_kits_beleza.png"
+  },
+  {
+    "id": "croche",
+    "nome": "Crochê (Venda de Produtos Físicos & Encomendas)",
+    "anunciante": "pontos.dona.ana",
+    "libraryId": "1930147894344978",
+    "dataInicio": "Aug 9, 2026",
+    "copy": "Enfeite de Porta Maternidade Jardim Encantado: O Guia Completo\n​O nascimento de um bebê é um momento mágico, e a decoração do quartinho começa logo na entrada. O Jardim Encantado é um dos temas mais procurados por quem busca delicadeza, cores suaves e um toque de natureza para as boas-vindas. Neste post, vamos mostrar por que a guirlanda personalizada em amigurumi é a escolha perfeita para esse momento.\n​Por que escolher um Enfeite de Porta Maternidade Feito à Mão?\n\n​Optar por um item feito à mão vai além da estética. É sobre exclusividade e afeto. Cada ponto de crochê é executado com precisão para criar peças que duram a vida toda como recordação.\n​Delicadeza em cada detalhe do Amigurumi\n\n​A técnica do amigurumi permite criar bichinhos, flores e borboletas com texturas macias e formas lúdicas. No tema Jardim Encantado, usamos fios de alta qualidade para dar vida a elementos que parecem saídos de um conto de fadas.\n​Personalização: Uma peça única para o seu bebê\n​Diferente de produtos ",
+    "adUrl": "https://www.facebook.com/ads/library/?id=1930147894344978",
+    "printPath": "/home/leossd/.agents/Memoria/Base de Projetos/Pesquisa e Anúncios/Mineração de Anúncios/saida_precisa/print_croche.png"
+  }
+]
