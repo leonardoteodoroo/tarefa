@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinâmica Aula 1: Identificação de Promessas e Big Ideas em Anúncios Reais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: #111827;
+      --bg-card-hover: #162032;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(99, 102, 241, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --accent-purple: #8b5cf6;
+      --accent-indigo: #6366f1;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      
+      --gradient-brand: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+      --glow-purple: 0 0 30px rgba(139, 92, 246, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 30px 20px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1380px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      padding: 40px 20px;
+      margin-bottom: 35px;
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+      border-radius: 24px;
+      border: 1px solid var(--border-color);
+    }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #c7d2fe;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .badge-top span.pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 10px #22c55e;
+    }
+
+    h1.title {
+      font-size: 2.7rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 70%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    /* NAV PILLS */
+    .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(16px);
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid var(--border-color);
+    }
+
+    .nav-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav-tab-btn:hover, .nav-tab-btn.active {
+      background: rgba(99, 102, 241, 0.2);
+      color: #ffffff;
+      border-color: rgba(99, 102, 241, 0.5);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* GRID DE CARDS */
+    .sections-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 45px;
+    }
+
+    .nicho-section {
+      background: var(--bg-card);
+      border-radius: 24px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transition: all 0.35s ease;
+      scroll-margin-top: 110px;
+    }
+
+    .nicho-section.highlight {
+      border-color: rgba(99, 102, 241, 0.85) !important;
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.35), 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+      transform: scale(1.002);
+    }
+
+    .nicho-section:hover {
+      border-color: var(--border-accent);
+    }
+
+    .nicho-header {
+      padding: 24px 32px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .nicho-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nicho-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .nicho-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .nicho-badge {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .badge-blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-amber { background: rgba(245, 158, 11b, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11b, 0.3); }
+    .badge-rose { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+
+    /* LAYOUT DUPLO */
+    .nicho-body {
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      gap: 30px;
+      padding: 32px;
+    }
+
+    @media (max-width: 1080px) {
+      .nicho-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* COLUNA DO PRINT */
+    .ad-visual-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .print-frame {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: #0f172a;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      position: relative;
+      cursor: pointer;
+      group: relative;
+    }
+
+    .print-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .print-frame:hover img {
+      transform: scale(1.03);
+      filter: brightness(1.08);
+    }
+
+    .print-zoom-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #e0e7ff;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.9;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      pointer-events: none;
+    }
+
+    .print-frame:hover .print-zoom-hint {
+      opacity: 1;
+      transform: scale(1.05);
+      background: rgba(99, 102, 241, 0.3);
+      border-color: rgba(99, 102, 241, 0.8);
+      box-shadow: 0 0 16px rgba(99, 102, 241, 0.4);
+    }
+
+    /* LIGHTBOX MODAL DE ZOOM */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5, 8, 16, 0.92);
+      backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-topbar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10001;
+      pointer-events: auto;
+    }
+
+    .lightbox-info {
+      background: rgba(30, 41, 59, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 18px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lightbox-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(30, 41, 59, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px;
+      border-radius: 14px;
+    }
+
+    .lightbox-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+
+    .lightbox-btn:hover {
+      background: rgba(99, 102, 241, 0.4);
+      border-color: rgba(99, 102, 241, 0.6);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .lightbox-btn.btn-close {
+      background: rgba(239, 68, 68, 0.15);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #f87171;
+    }
+
+    .lightbox-btn.btn-close:hover {
+      background: rgba(239, 68, 68, 0.35);
+      color: #ffffff;
+    }
+
+    .lightbox-zoom-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      padding: 0 10px;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    .lightbox-viewport {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      cursor: grab;
+    }
+
+    .lightbox-viewport.dragging {
+      cursor: grabbing;
+    }
+
+    .lightbox-image {
+      max-width: 88vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(99, 102, 241, 0.2);
+      transition: transform 0.1s ease-out;
+      transform-origin: center center;
+      pointer-events: auto;
+    }
+
+    .lightbox-hint-bottom {
+      position: absolute;
+      bottom: 20px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 6px 18px;
+      border-radius: 999px;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      pointer-events: none;
+      z-index: 10001;
+    }
+
+    .ad-meta-card {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.88rem;
+    }
+
+    .ad-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .ad-meta-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .meta-label {
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .meta-val {
+      color: #e2e8f0;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+    }
+
+    .ad-copy-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px dashed rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .ad-copy-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .ad-copy-text {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      font-style: italic;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+    .btn-link-meta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.25s ease;
+    }
+
+    .btn-link-meta:hover {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.4) 0%, rgba(168, 85, 247, 0.4) 100%);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+      transform: translateY(-1px);
+    }
+
+    /* CAIXA DISCRETA DE LINKS EXTRAS */
+    .extra-links-box {
+      margin-top: 24px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      transition: all 0.25s ease;
+    }
+
+    .extra-links-box:hover {
+      border-color: rgba(99, 102, 241, 0.35);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .extra-links-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .extra-links-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .extra-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px;
+    }
+
+    .extra-link-card {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .extra-link-card:hover {
+      background: rgba(99, 102, 241, 0.12);
+      border-color: rgba(99, 102, 241, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .extra-link-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .extra-link-top span.brand {
+      color: #e0e7ff;
+    }
+
+    .extra-link-desc {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      line-height: 1.35;
+    }
+
+    /* COLUNA DA ANÁLISE ESTRATÉGICA */
+    .analysis-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .analysis-card {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      padding: 22px;
+      position: relative;
+    }
+
+    .analysis-card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+
+    .card-icon {
+      font-size: 1.2rem;
+    }
+
+    /* COMPARAÇÃO DE PROMESSAS (GRID) */
+    .promises-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .promises-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .promise-box {
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .promise-box.explicit {
+      background: rgba(59, 130, 246, 0.06);
+      border-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .promise-box.implicit {
+      background: rgba(168, 85, 247, 0.06);
+      border-color: rgba(168, 85, 247, 0.2);
+    }
+
+    .promise-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+
+    .explicit .promise-tag { color: #60a5fa; }
+    .implicit .promise-tag { color: #c084fc; }
+
+    .promise-content {
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    /* QUADRO TRANSFORMAÇÃO ANTES/DEPOIS */
+    .transformation-bar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .trans-state {
+      padding: 12px;
+      border-radius: 10px;
+    }
+
+    .trans-state.before {
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.2);
+    }
+
+    .trans-state.after {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .trans-state-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .before .trans-state-label { color: #fb7185; }
+    .after .trans-state-label { color: #34d399; }
+
+    .trans-state-desc {
+      font-size: 0.88rem;
+      color: #e2e8f0;
+    }
+
+    .trans-arrow {
+      color: var(--text-dim);
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    /* MECANISMO E INIMIGO */
+    .strategy-pills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 680px) {
+      .strategy-pills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .strategy-pill-box {
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+    }
+
+    .pill-header {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #fbbf24;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-content {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+    }
+
+    /* BIG IDEA BANNER */
+    .big-idea-banner {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      border-radius: 14px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .big-idea-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #c084fc;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .big-idea-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .big-idea-desc {
+      font-size: 0.92rem;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 30px;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER PRINCIPAL -->
+    <header class="header">
+      <div class="badge-top">
+        <span class="pulse-dot"></span>
+        Dados 100% Reais Minerados na Meta Ads Library
+      </div>
+      <h1 class="title">Dinâmica: Identificação de Promessas & Big Ideas</h1>
+      <p class="subtitle">
+        Auditoria analítica completa de 5 nichos independentes. Dissecando a promessa explícita, a promessa implícita (desejo oculto), o mecanismo único e a transformação de anúncios reais ativos e validados.
+      </p>
+    </header>
+
+    <!-- MENU DE ABAS DE NAVEGAÇÃO -->
+    <nav class="nav-tabs">
+      <a href="#salao" class="nav-tab-btn active">💇‍♀️ 1. Salão de Beleza</a>
+      <a href="#acaiteria" class="nav-tab-btn">🍧 2. Açaiteria & Delivery</a>
+      <a href="#seguro" class="nav-tab-btn">🛡️ 3. Seguros de Vida</a>
+      <a href="#cosmeticos" class="nav-tab-btn">💄 4. Cosméticos & Kits</a>
+      <a href="#croche" class="nav-tab-btn">🧶 5. Crochê (Produto Físico)</a>
+    </nav>
+
+    <!-- SEÇÕES DOS 5 NICHOS -->
+    <main class="sections-wrapper">
+
+      <!-- 1. SALÃO DE BELEZA -->
+      <section id="salao" class="nicho-section">
+        <div class="nicho-header">
+          <div class="nicho-title-group">
+            <div class="nicho-icon">💇‍♀️</div>
+            <div>
+              <h2 class="nicho-title">1. Salão de Beleza & Estética Capilar</h2>
+              <span style="color: var(--text-dim); font-size: 0.85rem;">Serviço local de mechas, morena iluminada, progressiva e tratamentos capilares</span>
+            </div>
+          </div>
+          <span class="nicho-badge badge-purple">Serviço Local & Autoestima</span>
+        </div>
+
+        <div class="nicho-body">
+          <!-- Coluna Visual -->
+          <div class="ad-visual-column">
+            <div class="print-frame">
+              <img src="print_salao_de_beleza.png" alt="Biblioteca de Anúncios Salão Natália Rodovalho" data-title="1. Salão de Beleza — Salão Natália Rodovalho (~15 anúncios ativos na Biblioteca)">
+              <div class="print-zoom-hint">🔍 Clique para ampliar</div>
+            </div>
+            
+            <div class="ad-meta-card">
+              <div class="ad-meta-row">
+                <span class="meta-label">Anunciante:</span>
+                <span class="meta-val">Salão Natália Rodovalho</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Card no Print:</span>
+                <span class="meta-val" style="color: #fbbf24; font-weight: 700;">Anúncio #6 (Inferior Esquerdo)</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Library ID Analisado:</span>
+                <span class="meta-val">1386477636762572</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Volume Total:</span>
+                <span class="meta-val">~15 anúncios ativos simultâneos</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Canal / CTA:</span>
+                <span class="meta-val">WhatsApp / Agendamento Direto</span>
+              </div>
+            </div>
+
+            <div class="ad-copy-box">
+              <div class="ad-copy-title">📜 Copy Real Capturada no Anúncio:</div>
+              <div class="ad-copy-text">"Se você quer iluminar os fios sem perder identidade, esse pacote foi feito pra você:
+✔ Técnica personalizada
+✔ Cabelo saudável e com brilho
+✔ Resultado elegante e duradouro
+💛 Pacote completo por apenas R$ 399,00
+👉 Vagas limitadas | 👉 Atendimento profissional e exclusivo
+📲 Agende agora pelo WhatsApp
+
+[Criativo Visual:] Ilumine seu cabelo com segurança! A técnica de morena iluminada realça os pontos certos do cabelo, trazendo leveza, sofisticação e movimento sem aquele efeito artificial. Tudo isso com: Teste de mechas • Estabilização de pH • Tonalização personalizada • Tratamento com ozonioterapia ou laser • Finalização profissional."</div>
+            </div>
+
+            <a href="https://www.facebook.com/ads/library/?id=1386477636762572" target="_blank" class="btn-link-meta">
+              🔗 Abrir Anúncio na Meta Ads Library
+            </a>
+          </div>
+
+          <!-- Coluna Analítica -->
+          <div class="analysis-column">
+            
+            <!-- Produto e O que é -->
+            <div class="analysis-card">
+              <div class="analysis-card-title">
+                <span class="card-icon">🎯</span>
+                <span>Produto & Solução Ofertada</span>
+              </div>
+              <p style="color: #cbd5e1; font-size: 0.95rem;">
+                <strong>Pacote Fechado "Morena Iluminada Segura" (R$ 399):</strong> Procedimento completo de clareamento sutil e elegante com protocolo intensivo de saúde capilar (Teste de Mechas + Estabilização de pH + Tratamento com Ozônio/Laser + Tonalização e Finalização), eliminando a surpresa de valores adicionais.
+              </p>
+            </div>
+
+            <!-- Promessas Explícita vs Implícita -->
+            <div class="promises-grid">
+              <div class="promise-box explicit">
+                <span class="promise-tag">⚡ Promessa Explícita (Direta)</span>
+                <p class="promise-content">
+                  "Ilumine seus cabelos com técnica personalizada por um pacote completo fechado de R$ 399 com ozonioterapia e garantia de fios saudáveis."
+                </p>
+              </div>
+              <div class="promise-box implicit">
+                <span class="promise-tag">🔮 Promessa Implícita (Subconsciente)</span>
+                <p class="promise-content">
+                  "Perca de vez o medo do corte químico ou de ficar com cabelo manchado/alaranjado; sinta-se sofisticada, atraente e com ar de mulher rica sem perder sua essência."
+                </p>
+              </div>
+            </div>
+
+            <!-- Transformação Antes vs Depois -->
+            <div class="transformation-bar">
+              <div class="trans-state before">
+                <div class="trans-state-label">❌ Antes</div>
+                <div class="trans-state-desc">Cabelo apagado, medo de químicas danosas e insegurança com preços abusivos cobrados no final.</div>
+              </div>
+              <div class="trans-arrow">➔</div>
+              <div class="trans-state after">
+                <div class="trans-state-label">✨ Depois</div>
+                <div class="trans-state-desc">Visual iluminado de capa de revista, toque sedoso tratado no laser/ozônio e elogios por onde passa.</div>
+              </div>
+            </div>
+
+            <!-- Mecanismo Único & Inimigo -->
+            <div class="strategy-pills-grid">
+              <div class="strategy-pill-box">
+                <div class="pill-header">⚙️ Mecanismo Único</div>
+                <div class="pill-content">
+                  <strong>Protocolo de Iluminação Segura em 5 Etapas + Ozonioterapia:</strong> A inclusão do teste prévio, estabilização de pH e ozônio blinda o fio contra danos e serve como prova de segurança máxima.
+                </div>
+              </div>
+              <div class="strategy-pill-box">
+                <div class="pill-header">⚔️ Inimigo em Comum</div>
+                <div class="pill-content">
+                  O tom alaranjado artificial, o corte químico de descolorações desastradas e a falta de clareza nos preços de salões concorrentes.
+                </div>
+              </div>
+            </div>
+
+            <!-- Big Idea -->
+            <div class="big-idea-banner">
+              <div class="big-idea-tag">💡 Big Idea Síntese</div>
+              <div class="big-idea-title">"Iluminação Sem Medo: A Sofisticação da Morena Iluminada com a Saúde Protegida pelo Ozônio"</div>
+              <div class="big-idea-desc">
+                Você não precisa arriscar a vida do seu cabelo para ter os fios iluminados dos seus sonhos; mude de visual com a tranquilidade de um pacote fechado e proteção celular comprovada.
+              </div>
+            </div>
+
+            <!-- LINKS EXTRAS DISCRETOS -->
+            <div class="extra-links-box">
+              <div class="extra-links-header">
+                <div class="extra-links-title">
+                  <span>📚</span>
+                  <span>Outros Anúncios Minerados no Nicho (Para Análise Comparativa / Benchmark)</span>
+                </div>
+                <span style="font-size: 0.72rem; color: #64748b; font-weight: 600;">5 ANUNCIANTES DISTINTOS</span>
+              </div>
+              <div class="extra-links-grid">
+                <a href="https://www.facebook.com/ads/library/?id=27442386898725166" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">💇‍♀️ Salão da Ana</span>
+                    <span style="color: #60a5fa; font-size: 0.75rem;">ID: 27442386898725166 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Especialista em Mechas Loiras sem traumas/danos. Ataca o medo de corte químico.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1839512603686874" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">💇‍♀️ Matheus Azeredo Concept</span>
+                    <span style="color: #60a5fa; font-size: 0.75rem;">ID: 1839512603686874 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Morena Iluminada em salão conceito com oferta de boas-vindas com preço fechado (R$ 500).</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1724026782082440" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">💇‍♀️ Salão Perfil Coiffeur</span>
+                    <span style="color: #60a5fa; font-size: 0.75rem;">ID: 1724026782082440 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Visagismo e consultoria de colorimetria personalizada pensada no tom de pele e formato facial.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=907069812446357" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">💇‍♀️ BeautyConcept Nova Suíça</span>
+                    <span style="color: #60a5fa; font-size: 0.75rem;">ID: 907069812446357 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Pacotes de mechas e nutrição profunda explorando status de salão badalado e conceito.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1354956590073177" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">💇‍♀️ Studio Hair Super Fina</span>
+                    <span style="color: #60a5fa; font-size: 0.75rem;">ID: 1354956590073177 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Ecossistema completo com 18 anos de mercado: Cabelos, unhas, massagem e limpeza de pele.</div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. AÇAITERIA & DELIVERY -->
+      <section id="acaiteria" class="nicho-section">
+        <div class="nicho-header">
+          <div class="nicho-title-group">
+            <div class="nicho-icon">🍧</div>
+            <div>
+              <h2 class="nicho-title">2. Açaiteria & Delivery Gastronômico</h2>
+              <span style="color: var(--text-dim); font-size: 0.85rem;">Delivery local de açaí artesanal, cremes e combos</span>
+            </div>
+          </div>
+          <span class="nicho-badge badge-rose">Alimentação & Desejo Imediato</span>
+        </div>
+
+        <div class="nicho-body">
+          <!-- Coluna Visual -->
+          <div class="ad-visual-column">
+            <div class="print-frame">
+              <img src="print_acaiteria.png" alt="Print do Anúncio Açaiteria" data-title="2. Açaiteria & Delivery — Mocorongo Açaí">
+              <div class="print-zoom-hint">🔍 Clique para ampliar</div>
+            </div>
+            
+            <div class="ad-meta-card">
+              <div class="ad-meta-row">
+                <span class="meta-label">Anunciante:</span>
+                <span class="meta-val">Mocorongo Açaí</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Library ID:</span>
+                <span class="meta-val">4016066412018330</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Veiculação:</span>
+                <span class="meta-val">Ativo (Março 2026)</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Canal / CTA:</span>
+                <span class="meta-val">WhatsApp / Pedido Express</span>
+              </div>
+            </div>
+
+            <div class="ad-copy-box">
+              <div class="ad-copy-title">📜 Copy Real Capturada no Card:</div>
+              <div class="ad-copy-text">"WHATSAPP - Peça já! MOCORONGO AÇAÍ.
+[Criativo Visual:] Açaí do Grosso! 100% natural, certificado e no ponto. Nada de mistura: aqui é açaí raiz!"</div>
+            </div>
+
+            <a href="https://www.facebook.com/ads/library/?id=4016066412018330" target="_blank" class="btn-link-meta">
+              🔗 Abrir Anúncio na Meta Ads Library
+            </a>
+          </div>
+
+          <!-- Coluna Analítica -->
+          <div class="analysis-column">
+            
+            <!-- Produto e O que é -->
+            <div class="analysis-card">
+              <div class="analysis-card-title">
+                <span class="card-icon">🎯</span>
+                <span>Produto & Solução Ofertada</span>
+              </div>
+              <p style="color: #cbd5e1; font-size: 0.95rem;">
+                <strong>Açaí Puro Artesanal "Raiz" sem Xarope/Gelo:</strong> Açaí espesso, encorpado e certificado da Amazônia, entregue gelado na porta do cliente para matar a vontade instantânea de doce sem a frustração de comer sorvete ralo.
+              </p>
+            </div>
+
+            <!-- Promessas Explícita vs Implícita -->
+            <div class="promises-grid">
+              <div class="promise-box explicit">
+                <span class="promise-tag">⚡ Promessa Explícita (Direta)</span>
+                <p class="promise-content">
+                  "Peça seu açaí 100% puro e certificado direto pelo WhatsApp e receba a tigela mais grossa e saborosa da cidade."
+                </p>
+              </div>
+              <div class="promise-box implicit">
+                <span class="promise-tag">🔮 Promessa Implícita (Subconsciente)</span>
+                <p class="promise-content">
+                  "Você merece uma recompensa deliciosa hoje sem ser enganado por açaís batidos com água, açúcar e emulsificantes baratos."
+                </p>
+              </div>
+            </div>
+
+            <!-- Transformação Antes vs Depois -->
+            <div class="transformation-bar">
+              <div class="trans-state before">
+                <div class="trans-state-label">❌ Antes</div>
+                <div class="trans-state-desc">Calor, cansaço no fim da tarde, vontade incontrolável de doce e frustração com deliveries lentos ou aguados.</div>
+              </div>
+              <div class="trans-arrow">➔</div>
+              <div class="trans-state after">
+                <div class="trans-state-label">✨ Depois</div>
+                <div class="trans-state-desc">Prazer gastronômico imediato, energia revigorada e sensação de degustar o verdadeiro sabor do Norte.</div>
+              </div>
+            </div>
+
+            <!-- Mecanismo Único & Inimigo -->
+            <div class="strategy-pills-grid">
+              <div class="strategy-pill-box">
+                <div class="pill-header">⚙️ Mecanismo Único</div>
+                <div class="pill-content">
+                  <strong>"Açaí do Grosso 100% Raiz":</strong> A textura espessa e sem misturas químicas atua como a prova inegável de pureza e sabor premium.
+                </div>
+              </div>
+              <div class="strategy-pill-box">
+                <div class="pill-header">⚔️ Inimigo em Comum</div>
+                <div class="pill-content">
+                  O "açaí de xarope/gelo batido" que virou moda nos concorrentes genéricos e perdeu a essência da fruta.
+                </div>
+              </div>
+            </div>
+
+            <!-- Big Idea -->
+            <div class="big-idea-banner">
+              <div class="big-idea-tag">💡 Big Idea Síntese</div>
+              <div class="big-idea-title">"O Fim do Açaí Aguado: A Verdadeira Textura Raiz na Sua Casa"</div>
+              <div class="big-idea-desc">
+                Transformar um simples lanche da tarde num ritual de prazer gourmet autêntico com a máxima densidade e cremosidade do açaí puro.
+              </div>
+            </div>
+
+            <!-- LINKS EXTRAS DISCRETOS -->
+            <div class="extra-links-box">
+              <div class="extra-links-header">
+                <div class="extra-links-title">
+                  <span>📚</span>
+                  <span>Outros Anúncios Minerados no Nicho (Para Análise Comparativa / Benchmark)</span>
+                </div>
+                <span style="font-size: 0.72rem; color: #64748b; font-weight: 600;">5 ANUNCIANTES DISTINTOS</span>
+              </div>
+              <div class="extra-links-grid">
+                <a href="https://www.facebook.com/ads/library/?id=914991841668415" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🍧 Casa do Açaí</span>
+                    <span style="color: #fb7185; font-size: 0.75rem;">ID: 914991841668415 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Oferta de Up-size direto: "Peça 300ml e leve 400ml com creme de avelã grátis".</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1278655217793153" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🍧 Açaí da Thay</span>
+                    <span style="color: #fb7185; font-size: 0.75rem;">ID: 1278655217793153 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Posicionamento de recompensa: "Combo perfeito pra matar a vontade de doce sem culpa".</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=2099673310925675" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🍧 Belly Açaí</span>
+                    <span style="color: #fb7185; font-size: 0.75rem;">ID: 2099673310925675 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Hiperlocalismo e textura Frozen super cremosa que não derrete no delivery.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1091851603165386" target="_blank" class="extra-link-card" style="border: 1px solid rgba(245, 158, 11b, 0.5); background: linear-gradient(135deg, rgba(245, 158, 11b, 0.08) 0%, rgba(244, 63, 94, 0.08) 100%); box-shadow: 0 0 15px rgba(245, 158, 11b, 0.15);">
+                  <div class="extra-link-top">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span class="brand" style="color: #fbbf24; font-weight: 700;">🍧 DiCasa Açaí</span>
+                      <span style="background: linear-gradient(135deg, #f59e0b, #ef4444); color: #ffffff; font-size: 0.68rem; font-weight: 800; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.4px; box-shadow: 0 2px 6px rgba(245, 158, 11b, 0.4);">⭐ DESTAQUE DA BIBLIOTECA</span>
+                    </div>
+                    <span style="color: #fbbf24; font-size: 0.78rem; font-weight: 700;">ID: 1091851603165386 ↗</span>
+                  </div>
+                  <div class="extra-link-desc" style="color: #f1f5f9; margin-top: 4px;">
+                    🔥 <strong>Criativo impecável com altíssimo apelo visual:</strong> Camadas fartas de Nutella, morangos frescos e leite Ninho. <span style="color: #fbbf24; text-decoration: underline; font-weight: 600;">Clique aqui para assistir a esse anúncio na biblioteca!</span>
+                  </div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=2133014230972639" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🍧 Bia Açaí</span>
+                    <span style="color: #fb7185; font-size: 0.75rem;">ID: 2133014230972639 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Promoção relâmpago focada em agilidade e entrega expressa pelo WhatsApp.</div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. SEGUROS DE VIDA -->
+      <section id="seguro" class="nicho-section">
+        <div class="nicho-header">
+          <div class="nicho-title-group">
+            <div class="nicho-icon">🛡️</div>
+            <div>
+              <h2 class="nicho-title">3. Seguros de Vida & Planejamento Familiar</h2>
+              <span style="color: var(--text-dim); font-size: 0.85rem;">Proteção patrimonial, segurança financeira e cobertura para doenças graves</span>
+            </div>
+          </div>
+          <span class="nicho-badge badge-blue">Proteção & Segurança Financeira</span>
+        </div>
+
+        <div class="nicho-body">
+          <!-- Coluna Visual -->
+          <div class="ad-visual-column">
+            <div class="print-frame">
+              <img src="print_seguro_de_vida.png" alt="Print do Anúncio Seguro de Vida" data-title="3. Seguros de Vida & Planejamento Familiar — Prudential do Brasil">
+              <div class="print-zoom-hint">🔍 Clique para ampliar</div>
+            </div>
+            
+            <div class="ad-meta-card">
+              <div class="ad-meta-row">
+                <span class="meta-label">Anunciante:</span>
+                <span class="meta-val">Prudential do Brasil</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Library ID:</span>
+                <span class="meta-val">4278002805755856</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Veiculação:</span>
+                <span class="meta-val">Ativo (Maio 2026)</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Canal / CTA:</span>
+                <span class="meta-val">Landing Page / Consultoria</span>
+              </div>
+            </div>
+
+            <div class="ad-copy-box">
+              <div class="ad-copy-title">📜 Copy Real Capturada no Card:</div>
+              <div class="ad-copy-text">"Quando a vida surpreende, ter proteção financeira muda tudo. Inclua o seguro de vida em seu planejamento e proteja sua família. Preencha o formulário no site e fale com um especialista Prudential."</div>
+            </div>
+
+            <a href="https://www.facebook.com/ads/library/?id=4278002805755856" target="_blank" class="btn-link-meta">
+              🔗 Abrir Anúncio na Meta Ads Library
+            </a>
+          </div>
+
+          <!-- Coluna Analítica -->
+          <div class="analysis-column">
+            
+            <!-- Produto e O que é -->
+            <div class="analysis-card">
+              <div class="analysis-card-title">
+                <span class="card-icon">🎯</span>
+                <span>Produto & Solução Ofertada</span>
+              </div>
+              <p style="color: #cbd5e1; font-size: 0.95rem;">
+                <strong>Apólice de Seguro de Vida Personalizada (Vida e Invalidez/Doenças):</strong> Blindagem financeira que garante liquidez imediata para a família e para o próprio titular em vida diante de imprevistos críticos ou diagnósticos graves.
+              </p>
+            </div>
+
+            <!-- Promessas Explícita vs Implícita -->
+            <div class="promises-grid">
+              <div class="promise-box explicit">
+                <span class="promise-tag">⚡ Promessa Explícita (Direta)</span>
+                <p class="promise-content">
+                  "Proteja sua família de imprevistos financeiros com um seguro de vida sob medida planejado por um especialista."
+                </p>
+              </div>
+              <div class="promise-box implicit">
+                <span class="promise-tag">🔮 Promessa Implícita (Subconsciente)</span>
+                <p class="promise-content">
+                  "Livre-se da culpa e do medo constante de morrer ou adoecer e deixar seus filhos desamparados e dependentes de parentes."
+                </p>
+              </div>
+            </div>
+
+            <!-- Transformação Antes vs Depois -->
+            <div class="transformation-bar">
+              <div class="trans-state before">
+                <div class="trans-state-label">❌ Antes</div>
+                <div class="trans-state-desc">Insegurança silenciosa, vulnerabilidade a crises médicas e medo do futuro dos dependentes.</div>
+              </div>
+              <div class="trans-arrow">➔</div>
+              <div class="trans-state after">
+                <div class="trans-state-label">✨ Depois</div>
+                <div class="trans-state-desc">Paz de espírito inabalável, honra familiar garantida e legado patrimonial intocado.</div>
+              </div>
+            </div>
+
+            <!-- Mecanismo Único & Inimigo -->
+            <div class="strategy-pills-grid">
+              <div class="strategy-pill-box">
+                <div class="pill-header">⚙️ Mecanismo Único</div>
+                <div class="pill-content">
+                  <strong>Planejamento com Life Planner Especializado:</strong> Desmistifica o seguro como "algo que só serve após a morte", transformando-o em ativo financeiro de usufruto em vida.
+                </div>
+              </div>
+              <div class="strategy-pill-box">
+                <div class="pill-header">⚔️ Inimigo em Comum</div>
+                <div class="pill-content">
+                  A falsa sensação de controle ("comigo nunca vai acontecer") e a burocracia custosa do inventário.
+                </div>
+              </div>
+            </div>
+
+            <!-- Big Idea -->
+            <div class="big-idea-banner">
+              <div class="big-idea-tag">💡 Big Idea Síntese</div>
+              <div class="big-idea-title">"O Escudo Invisível: Seu Amor pela Família Traduzido em Tranquilidade"</div>
+              <div class="big-idea-desc">
+                Seguro de vida não é sobre morte, é sobre amor, dignidade e a certeza de que quem você ama continuará tendo um teto e oportunidades no pior dia de suas vidas.
+              </div>
+            </div>
+
+            <!-- LINKS EXTRAS DISCRETOS -->
+            <div class="extra-links-box">
+              <div class="extra-links-header">
+                <div class="extra-links-title">
+                  <span>📚</span>
+                  <span>Outros Anúncios Minerados no Nicho (Para Análise Comparativa / Benchmark)</span>
+                </div>
+                <span style="font-size: 0.72rem; color: #64748b; font-weight: 600;">ANÚNCIOS ATIVOS VERIFICADOS</span>
+              </div>
+              <div class="extra-links-grid">
+                <a href="https://www.facebook.com/ads/library/?id=2861311067560905" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🛡️ Amar Assist (Proteção Familiar)</span>
+                    <span style="color: #60a5fa; font-size: 0.75rem;">ID: 2861311067560905 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Proteção familiar e garantia de educação dos filhos com apólice de longo prazo.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1373404458298083" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🛡️ O Seu Corretor de Seguros</span>
+                    <span style="color: #60a5fa; font-size: 0.75rem;">ID: 1373404458298083 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Diagnóstico de risco: "Sua renda, família e patrimônio estão realmente protegidos?".</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=882990551474463" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🛡️ Planejar Associação Financeira</span>
+                    <span style="color: #60a5fa; font-size: 0.75rem;">ID: 882990551474463 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Quebra de objeção: o seguro de vida como a fundação essencial antes dos investimentos.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1770883594262583" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🛡️ Corretora Ideale</span>
+                    <span style="color: #60a5fa; font-size: 0.75rem;">ID: 1770883594262583 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Consultoria personalizada de seguro em vida para cada fase e momento da família.</div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. COSMÉTICOS E KITS DE BELEZA -->
+      <section id="cosmeticos" class="nicho-section">
+        <div class="nicho-header">
+          <div class="nicho-title-group">
+            <div class="nicho-icon">💄</div>
+            <div>
+              <h2 class="nicho-title">4. Cosméticos, Kits de Beleza & Presentes</h2>
+              <span style="color: var(--text-dim); font-size: 0.85rem;">Revenda independente, kits de autocuidado, skincare e presentes prontos</span>
+            </div>
+          </div>
+          <span class="nicho-badge badge-amber">Autocuidado & Presente Express</span>
+        </div>
+
+        <div class="nicho-body">
+          <!-- Coluna Visual -->
+          <div class="ad-visual-column">
+            <div class="print-frame">
+              <img src="print_cosmeticos_kits_beleza.png" alt="Print do Anúncio Cosméticos" data-title="4. Cosméticos & Kits de Beleza — Arvensis Cosméticos">
+              <div class="print-zoom-hint">🔍 Clique para ampliar</div>
+            </div>
+            
+            <div class="ad-meta-card">
+              <div class="ad-meta-row">
+                <span class="meta-label">Anunciante:</span>
+                <span class="meta-val">Arvensis Cosméticos</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Library ID:</span>
+                <span class="meta-val">1307725288107581</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Veiculação:</span>
+                <span class="meta-val">Ativo (Julho 2026)</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Canal / CTA:</span>
+                <span class="meta-val">Loja Virtual / Pronta Entrega</span>
+              </div>
+            </div>
+
+            <div class="ad-copy-box">
+              <div class="ad-copy-title">📜 Copy Real Capturada no Card:</div>
+              <div class="ad-copy-text">"Fios finos pedem leveza, não peso. O Kit Super Leve hidrata, define o cacho e ainda vem com um óleo de presente.
+🚚 Entrega para todo o Brasil | 💳 Em até 6x sem juros | 📦 Produtos com pronta entrega"</div>
+            </div>
+
+            <a href="https://www.facebook.com/ads/library/?id=1307725288107581" target="_blank" class="btn-link-meta">
+              🔗 Abrir Anúncio na Meta Ads Library
+            </a>
+          </div>
+
+          <!-- Coluna Analítica -->
+          <div class="analysis-column">
+            
+            <!-- Produto e O que é -->
+            <div class="analysis-card">
+              <div class="analysis-card-title">
+                <span class="card-icon">🎯</span>
+                <span>Produto & Solução Ofertada</span>
+              </div>
+              <p style="color: #cbd5e1; font-size: 0.95rem;">
+                <strong>Kit Completo de Tratamento Capilar + Brinde Exclusivo:</strong> Conjunto formulado com botânica suave que resolve o dilema de cachos finos (que pesam com cremes comuns), oferecido com parcelamento flexível e envio imediato.
+              </p>
+            </div>
+
+            <!-- Promessas Explícita vs Implícita -->
+            <div class="promises-grid">
+              <div class="promise-box explicit">
+                <span class="promise-tag">⚡ Promessa Explícita (Direta)</span>
+                <p class="promise-content">
+                  "Kit capilar super leve que hidrata e define cabelos finos sem pesar, com óleo capilar grátis de presente."
+                </p>
+              </div>
+              <div class="promise-box implicit">
+                <span class="promise-tag">🔮 Promessa Implícita (Subconsciente)</span>
+                <p class="promise-content">
+                  "Recupere o movimento e o balanço do seu cabelo natural sem gastar fortunas no salão toda semana; sinta-se linda e cuidada todos os dias."
+                </p>
+              </div>
+            </div>
+
+            <!-- Transformação Antes vs Depois -->
+            <div class="transformation-bar">
+              <div class="trans-state before">
+                <div class="trans-state-label">❌ Antes</div>
+                <div class="trans-state-desc">Cabelo pesado, com aspecto oleoso ou sem definição após usar cremes genéricos de mercado.</div>
+              </div>
+              <div class="trans-arrow">➔</div>
+              <div class="trans-state after">
+                <div class="trans-state-label">✨ Depois</div>
+                <div class="trans-state-desc">Cachos soltos, volumosos na medida certa, brilho sedoso e a alegria de ter ganhado um mimo.</div>
+              </div>
+            </div>
+
+            <!-- Mecanismo Único & Inimigo -->
+            <div class="strategy-pills-grid">
+              <div class="strategy-pill-box">
+                <div class="pill-header">⚙️ Mecanismo Único</div>
+                <div class="pill-content">
+                  <strong>Fórmula "Super Leve" Não-Oclusiva + Brinde Perfeito:</strong> Quebra a objeção clássica de que produto hidratante deixa o fio pesado.
+                </div>
+              </div>
+              <div class="strategy-pill-box">
+                <div class="pill-header">⚔️ Inimigo em Comum</div>
+                <div class="pill-content">
+                  Cremes pesados tradicionais que prometem definição mas deixam o cabelo empastado e murcho.
+                </div>
+              </div>
+            </div>
+
+            <!-- Big Idea -->
+            <div class="big-idea-banner">
+              <div class="big-idea-tag">💡 Big Idea Síntese</div>
+              <div class="big-idea-title">"Definição Sem Peso: O Ritual Completo Que Seus Fios Finos Merecem"</div>
+              <div class="big-idea-desc">
+                A tecnologia da botânica aplicada para devolver a liberdade de movimento aos seus fios, entregando uma experiência de salão dentro do seu banheiro.
+              </div>
+            </div>
+
+            <!-- LINKS EXTRAS DISCRETOS -->
+            <div class="extra-links-box">
+              <div class="extra-links-header">
+                <div class="extra-links-title">
+                  <span>📚</span>
+                  <span>Outros Anúncios Minerados no Nicho (Para Análise Comparativa / Benchmark)</span>
+                </div>
+                <span style="font-size: 0.72rem; color: #64748b; font-weight: 600;">ANÚNCIOS ATIVOS VERIFICADOS</span>
+              </div>
+              <div class="extra-links-grid">
+                <a href="https://www.facebook.com/ads/library/?id=1596260052164519" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">💄 Box Scarlet</span>
+                    <span style="color: #fbbf24; font-size: 0.75rem;">ID: 1596260052164519 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Ancoragem de valor: "Mais de R$670 em produtos por menos de R$170" em kit presenteável.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1503781764582405" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">💄 Phinna Cosméticos</span>
+                    <span style="color: #fbbf24; font-size: 0.75rem;">ID: 1503781764582405 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Kit Cronograma Capilar 3 em 1: hidratação, nutrição e reconstrução com resultado de salão.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1130256475592378" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">💄 Mio Capelli</span>
+                    <span style="color: #fbbf24; font-size: 0.75rem;">ID: 1130256475592378 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Tratamento profissional home care: fórmulas de alta performance para cabelos saudáveis.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1567932228059113" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">💄 Arvensis Cosméticos</span>
+                    <span style="color: #fbbf24; font-size: 0.75rem;">ID: 1567932228059113 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Oferta Verão Cachos: 15% OFF, frete grátis e Máscara 2 em 1 de presente exclusivo no kit.</div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. CROCHÊ (PRODUTO FÍSICO) -->
+      <section id="croche" class="nicho-section">
+        <div class="nicho-header">
+          <div class="nicho-title-group">
+            <div class="nicho-icon">🧶</div>
+            <div>
+              <h2 class="nicho-title">5. Crochê & Amigurumi (Peças Físicas Artesanais)</h2>
+              <span style="color: var(--text-dim); font-size: 0.85rem;">Enfeites de porta de maternidade, amigurumis e peças feitas à mão sob encomenda</span>
+            </div>
+          </div>
+          <span class="nicho-badge badge-green">Artesanato Afetivo & Maternidade</span>
+        </div>
+
+        <div class="nicho-body">
+          <!-- Coluna Visual -->
+          <div class="ad-visual-column">
+            <div class="print-frame">
+              <img src="print_croche.png" alt="Print do Anúncio Crochê" data-title="5. Crochê & Amigurumi (Peça Física) — pontos.dona.ana">
+              <div class="print-zoom-hint">🔍 Clique para ampliar</div>
+            </div>
+            
+            <div class="ad-meta-card">
+              <div class="ad-meta-row">
+                <span class="meta-label">Anunciante:</span>
+                <span class="meta-val">pontos.dona.ana</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Library ID:</span>
+                <span class="meta-val">1930147894344978</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Veiculação:</span>
+                <span class="meta-val">Ativo (Agosto 2026)</span>
+              </div>
+              <div class="ad-meta-row">
+                <span class="meta-label">Canal / CTA:</span>
+                <span class="meta-val">Catálogo Kyte / Encomendas</span>
+              </div>
+            </div>
+
+            <div class="ad-copy-box">
+              <div class="ad-copy-title">📜 Copy Real Capturada no Card:</div>
+              <div class="ad-copy-text">"Enfeite de Porta Maternidade Jardim Encantado: O Guia Completo.
+O nascimento de um bebê é um momento mágico... Optar por um item feito à mão vai além da estética: é sobre exclusividade e afeto. Cada ponto é executado para criar peças que duram a vida toda como recordação..."</div>
+            </div>
+
+            <a href="https://www.facebook.com/ads/library/?id=1930147894344978" target="_blank" class="btn-link-meta">
+              🔗 Abrir Anúncio na Meta Ads Library
+            </a>
+          </div>
+
+          <!-- Coluna Analítica -->
+          <div class="analysis-column">
+            
+            <!-- Produto e O que é -->
+            <div class="analysis-card">
+              <div class="analysis-card-title">
+                <span class="card-icon">🎯</span>
+                <span>Produto & Solução Ofertada</span>
+              </div>
+              <p style="color: #cbd5e1; font-size: 0.95rem;">
+                <strong>Guirlanda e Enfeite de Porta de Maternidade Personalizado em Crochê Amigurumi:</strong> Peça de arte física e afetiva sob encomenda com o nome do bebê, flores e bichinhos delicados para receber as visitas no hospital e decorar o quarto para sempre.
+              </p>
+            </div>
+
+            <!-- Promessas Explícita vs Implícita -->
+            <div class="promises-grid">
+              <div class="promise-box explicit">
+                <span class="promise-tag">⚡ Promessa Explícita (Direta)</span>
+                <p class="promise-content">
+                  "Enfeite de porta de maternidade temático personalizado em amigurumi feito à mão com acabamento impecável."
+                </p>
+              </div>
+              <div class="promise-box implicit">
+                <span class="promise-tag">🔮 Promessa Implícita (Subconsciente)</span>
+                <p class="promise-content">
+                  "Marque o momento mais sagrado da sua vida com uma peça única e afetuosa que fará todas as visitas se emocionarem e guardará memórias da infância do seu filho."
+                </p>
+              </div>
+            </div>
+
+            <!-- Transformação Antes vs Depois -->
+            <div class="transformation-bar">
+              <div class="trans-state before">
+                <div class="trans-state-label">❌ Antes</div>
+                <div class="trans-state-desc">Ansiedade com a chegada do bebê e medo de comprar decorações plásticas genéricas e sem identidade.</div>
+              </div>
+              <div class="trans-arrow">➔</div>
+              <div class="trans-state after">
+                <div class="trans-state-label">✨ Depois</div>
+                <div class="trans-state-desc">Quartinho aconchegante dos sonhos, orgulho nas fotos de boas-vindas e uma relíquia familiar inesquecível.</div>
+              </div>
+            </div>
+
+            <!-- Mecanismo Único & Inimigo -->
+            <div class="strategy-pills-grid">
+              <div class="strategy-pill-box">
+                <div class="pill-header">⚙️ Mecanismo Único</div>
+                <div class="pill-content">
+                  <strong>Amigurumi de Luxo Feito Ponto a Ponto sob Medida:</strong> O valor emocional da arte manual supera qualquer item industrial serializado.
+                </div>
+              </div>
+              <div class="strategy-pill-box">
+                <div class="pill-header">⚔️ Inimigo em Comum</div>
+                <div class="pill-content">
+                  Enfeites industriais de plástico ou MDF sem calor humano vendidos em massa em grandes magazines.
+                </div>
+              </div>
+            </div>
+
+            <!-- Big Idea -->
+            <div class="big-idea-banner">
+              <div class="big-idea-tag">💡 Big Idea Síntese</div>
+              <div class="big-idea-title">"O Primeiro Abraço Visual: Afeto Feito à Mão para o Dia Mais Feliz da Sua Vida"</div>
+              <div class="big-idea-desc">
+                Mais do que um enfeite de porta, é a primeira declaração de amor física que seu filho receberá ao chegar ao mundo.
+              </div>
+            </div>
+
+            <!-- LINKS EXTRAS DISCRETOS -->
+            <div class="extra-links-box">
+              <div class="extra-links-header">
+                <div class="extra-links-title">
+                  <span>📚</span>
+                  <span>Outros Anúncios Minerados no Nicho (Para Análise Comparativa / Benchmark)</span>
+                </div>
+                <span style="font-size: 0.72rem; color: #64748b; font-weight: 600;">5 ARTESÃS DISTINTAS</span>
+              </div>
+              <div class="extra-links-grid">
+                <a href="https://www.facebook.com/ads/library/?id=1609870967387457" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🧶 Keké Amigurumi</span>
+                    <span style="color: #34d399; font-size: 0.75rem;">ID: 1609870967387457 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Bonecas e bonecos personalizados por profissão / homenagem afetiva sob encomenda.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1026252740315482" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🧶 Lolo Bunny Ateliê</span>
+                    <span style="color: #34d399; font-size: 0.75rem;">ID: 1026252740315482 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Porta maternidade e guirlandas personalizadas em crochê com o nome do bebê.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1083710734341735" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🧶 Mimos da Ju Amigurumi</span>
+                    <span style="color: #34d399; font-size: 0.75rem;">ID: 1083710734341735 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Enxoval de bebê em crochê com fio 100% algodão e fibra antialérgica.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=1657213792218269" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🧶 Ateliê Porta Maternidade</span>
+                    <span style="color: #34d399; font-size: 0.75rem;">ID: 1657213792218269 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Peças com envio de vídeo da peça pronta para aprovação antes do envio pelos Correios.</div>
+                </a>
+
+                <a href="https://www.facebook.com/ads/library/?id=888196140676743" target="_blank" class="extra-link-card">
+                  <div class="extra-link-top">
+                    <span class="brand">🧶 Fêh Ateliê</span>
+                    <span style="color: #34d399; font-size: 0.75rem;">ID: 888196140676743 ↗</span>
+                  </div>
+                  <div class="extra-link-desc">Presentes memoráveis e afetivos para afilhados e sobrinhos que duram a infância toda.</div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>Gerado pelo Pipeline de Mineração de Anúncios & Auditoria Estratégica</p>
+      <p style="margin-top: 4px; font-size: 0.8rem;">Estudo de Caso da Aula 1: Identificação de Promessas, Mecanismos Únicos e Big Ideas em Anúncios Reais da Meta Ads Library.</p>
+    </footer>
+
+  </div>
+
+  <!-- LIGHTBOX MODAL DE ZOOM -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <div class="lightbox-topbar">
+      <div class="lightbox-info">
+        <span id="lightboxIcon">🔍</span>
+        <span id="lightboxTitle">Visualizador de Alta Resolução</span>
+      </div>
+
+      <div class="lightbox-controls">
+        <button class="lightbox-btn" id="btnZoomOut" title="Reduzir Zoom (-)">−</button>
+        <span class="lightbox-zoom-badge" id="zoomBadge">100%</span>
+        <button class="lightbox-btn" id="btnZoomIn" title="Aumentar Zoom (+)">+</button>
+        <button class="lightbox-btn" id="btnResetZoom" title="Resetar Zoom (100%)">⟲</button>
+        <button class="lightbox-btn btn-close" id="btnCloseModal" title="Fechar (ESC)">✕</button>
+      </div>
+    </div>
+
+    <div class="lightbox-viewport" id="lightboxViewport">
+      <img id="lightboxImg" class="lightbox-image" src="" alt="Zoom do Anúncio">
+    </div>
+
+    <div class="lightbox-hint-bottom">
+      💡 Dica: Use a <strong>rodinha do mouse</strong> para zoom, <strong>clique e arraste</strong> para mover a imagem ou dê <strong>duplo clique</strong> para alternar rápido.
+    </div>
+  </div>
+
+  <script>
+    // ESTADO DO ZOOM & PAN
+    const modal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const viewport = document.getElementById('lightboxViewport');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const zoomBadge = document.getElementById('zoomBadge');
+    
+    const btnZoomIn = document.getElementById('btnZoomIn');
+    const btnZoomOut = document.getElementById('btnZoomOut');
+    const btnResetZoom = document.getElementById('btnResetZoom');
+    const btnCloseModal = document.getElementById('btnCloseModal');
+
+    let currentScale = 1;
+    let minScale = 0.6;
+    let maxScale = 4.0;
+    let posX = 0;
+    let posY = 0;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+
+    function updateTransform() {
+      lightboxImg.style.transform = `translate(${posX}px, ${posY}px) scale(${currentScale})`;
+      zoomBadge.textContent = `${Math.round(currentScale * 100)}%`;
+      if (currentScale > 1) {
+        viewport.style.cursor = isDragging ? 'grabbing' : 'grab';
+      } else {
+        viewport.style.cursor = 'default';
+      }
+    }
+
+    function resetZoom() {
+      currentScale = 1;
+      posX = 0;
+      posY = 0;
+      updateTransform();
+    }
+
+    function openLightbox(src, title) {
+      lightboxImg.src = src;
+      lightboxTitle.textContent = title || 'Anúncio Meta Ads';
+      resetZoom();
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        lightboxImg.src = '';
+      }, 250);
+    }
+
+    // ABRIR AO CLICAR EM QUALQUER PRINT FRAME
+    document.querySelectorAll('.print-frame').forEach(frame => {
+      frame.addEventListener('click', () => {
+        const img = frame.querySelector('img');
+        if (img) {
+          const title = img.getAttribute('data-title') || img.getAttribute('alt') || 'Anúncio Meta Ads';
+          openLightbox(img.src, title);
+        }
+      });
+    });
+
+    // BOTÕES DE CONTROLE
+    btnZoomIn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (currentScale < maxScale) {
+        currentScale = Math.min(maxScale, currentScale + 0.3);
+        updateTransform();
+      }
+    });
+
+    btnZoomOut.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (currentScale > minScale) {
+        currentScale = Math.max(minScale, currentScale - 0.3);
+        updateTransform();
+      }
+    });
+
+    btnResetZoom.addEventListener('click', (e) => {
+      e.stopPropagation();
+      resetZoom();
+    });
+
+    btnCloseModal.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeLightbox();
+    });
+
+    // FECHAR AO CLICAR FORA DA IMAGEM
+    viewport.addEventListener('click', (e) => {
+      if (e.target === viewport) {
+        closeLightbox();
+      }
+    });
+
+    // DUPLO CLIQUE PARA ALTERNAR ZOOM 1X / 2.2X
+    lightboxImg.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      if (currentScale > 1.1) {
+        resetZoom();
+      } else {
+        currentScale = 2.2;
+        posX = 0;
+        posY = 0;
+        updateTransform();
+      }
+    });
+
+    // ZOOM COM A RODINHA DO MOUSE (WHEEL)
+    viewport.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const zoomFactor = e.deltaY < 0 ? 0.18 : -0.18;
+      const newScale = Math.min(maxScale, Math.max(minScale, currentScale + zoomFactor));
+      if (newScale !== currentScale) {
+        currentScale = newScale;
+        updateTransform();
+      }
+    }, { passive: false });
+
+    // ARRASTO / PAN
+    viewport.addEventListener('mousedown', (e) => {
+      if (e.target === btnCloseModal || e.target.closest('.lightbox-topbar')) return;
+      if (currentScale > 1) {
+        isDragging = true;
+        startX = e.clientX - posX;
+        startY = e.clientY - posY;
+        viewport.classList.add('dragging');
+      }
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      posX = e.clientX - startX;
+      posY = e.clientY - startY;
+      updateTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        viewport.classList.remove('dragging');
+        updateTransform();
+      }
+    });
+
+    // TECLA ESC PARA FECHAR E + / - PARA ZOOM
+    window.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('active')) return;
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === '+' || e.key === '=') {
+        currentScale = Math.min(maxScale, currentScale + 0.3);
+        updateTransform();
+      } else if (e.key === '-' || e.key === '_') {
+        currentScale = Math.max(minScale, currentScale - 0.3);
+        updateTransform();
+      } else if (e.key === '0') {
+        resetZoom();
+      }
+    });
+
+    // NAVEGAÇÃO INTERATIVA DE ABAS & SCROLLSPY
+    const navButtons = document.querySelectorAll('.nav-tab-btn');
+    const sections = document.querySelectorAll('.nicho-section');
+
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = btn.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          navButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const headerOffset = 95;
+          const elementPosition = targetSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          targetSection.classList.add('highlight');
+          setTimeout(() => targetSection.classList.remove('highlight'), 1200);
+        }
+      });
+    });
+
+    // SCROLLSPY AUTOMÁTICO AO ROLAR A PÁGINA
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      const scrollY = window.pageYOffset;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        const sectionHeight = section.offsetHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+
+      if (currentSectionId) {
+        navButtons.forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.getAttribute('href') === `#${currentSectionId}`) {
+            btn.classList.add('active');
+          }
+        });
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
