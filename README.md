@@ -1,8 +1,8 @@
 # 🎯 Dinâmica da Aula 1 — Técnico em Marketing e Mídias Sociais 2026
 ### Estudo de Caso: Identificação de Promessas, Mecanismos Únicos e Big Ideas em Anúncios Reais da Meta Ads Library
 
-> **Ambiente de Publicação:** [`tarefa.semprenamoda.com.br`](https://tarefa.semprenamoda.com.br)  
-> **Repositório:** [`leonardoteodoroo/tarefa.semprenamoda.com.br`](https://github.com/leonardoteodoroo/tarefa.semprenamoda.com.br)  
+> **Ambiente de Publicação:** [`tarefa`](https://tarefa)  
+> **Repositório:** [`leonardoteodoroo/tarefa`](https://github.com/leonardoteodoroo/tarefa)  
 > **Interface Interativa:** [Abrir `index.html`](./index.html) ou [`dinamica_promessas_anuncios.html`](./dinamica_promessas_anuncios.html)
 
 ---
